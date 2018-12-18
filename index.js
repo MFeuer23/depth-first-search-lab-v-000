@@ -2,10 +2,13 @@ function depthFirstSearch(rootNode, vertices, edges) {
   let discovered = [rootNode]
   let discoverOrder = [rootNode]
   while(discovered.length != 0){
-    let currentNode = discovered.shift()
+    let currentNode = discovered.pop()
+      if (currentNode.discovered === null) {
+        currentNode.discovered = true
+      }
     let adjacentNodes = findAdjacent(currentNode.name, vertices, edges)
-    discoverOrder = discoverOrder.concat(adjacentNodes);
-    discovered = discovered.concat(adjacentNodes)
+    discoverOrder = discoverOrder.push(adjacentNodes);
+    discovered = discovered.push(adjacentNodes)
   }
   return discoverOrder
 }
