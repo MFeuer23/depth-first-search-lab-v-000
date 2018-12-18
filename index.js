@@ -1,17 +1,21 @@
 function depthFirstSearch(rootNode, vertices, edges) {
-  let discovered = []
-  discovered.push(rootNode)
-  let discoverOrder = [rootNode]
-  while(discovered.length !== 0){
-    let currentNode = discovered.pop()
-      if (currentNode.discovered === null) {
-        currentNode.discovered = true
-      }
-    let adjacentNodes = findAdjacent(currentNode.name, vertices, edges)
-    discoverOrder = discoverOrder.push(adjacentNodes);
-    discovered = discovered.push(adjacentNodes)
-  }
-  return discoverOrder
+		let stack = []
+		stack.push(rootNode)
+		let visited = [rootNode]
+
+		while(stack.length != 0){
+			// console.log(`first element in stack is ${stack[0].name}`)
+			let v = stack.pop()
+			if(!v.discovered){
+				v.discovered = true
+
+				findAdjacent(v.name, vertices, edges).forEach(function(node){
+					visited.push(node)
+					stack.push(node)
+				})
+			}
+		}
+		return visited;
 }
 
 
