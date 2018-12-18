@@ -2,6 +2,7 @@ function depthFirstSearch(rootNode, vertices, edges) {
   let discovered = [rootNode]
   let discoverOrder = [rootNode]
   while(discovered.length != 0){
+    console.log(discovered)
     let currentNode = discovered.pop()
       if (currentNode.discovered === null) {
         currentNode.discovered = true
