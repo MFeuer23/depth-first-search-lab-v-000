@@ -1,6 +1,7 @@
 function depthFirstSearch(rootNode, vertices, edges) {
-  let visitedVertices = []
-  vsitedVertices.push(rootNode)
+  let discovered = [rootNode]
+  let discoverOrder = [rootNode]
+  while discovered 
 }
 
 
